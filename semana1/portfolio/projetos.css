@@ -55,32 +55,58 @@ main {
     color: rgb(212, 211, 211);
 }
 
-.img {
-    width: 200px;
-    height: 200px; 
+
+main {
+    height: 75vh;
+    width: 100vw;
+    max-width: 600px;
 }
 
-#foto {
+.galeria {  
+    height: 60vh;
+    width: 70vw;
+    max-width: 705px; 
+
+    display: flex;
+    flex-direction: column;
+        
+    justify-content: space-between; 
+}
+
+.linha {  
     width: 100%;
+    
+    display: flex;
+
+    justify-content: space-between; 
+}
+
+.projeto {
+    background-color:rgb(212, 211, 211, 0.05);
+    
+    border-radius: 10px;
+
+    height: 28vh;
+    width: 50vw;
+    max-width: 330px;
+
+    display: flex;
+    flex-direction: column;
+        
+    align-items: center;
+    justify-content: center; 
+}
+
+.image {
+    height: 65%;
+    width: 80%;
+
+    margin-bottom: 10px;
+}
+
+img {
     height: 100%;
-
-    border-radius: 50%;
-    border: solid 2px #30eb9d;
-}
-
-h1 {
-    margin-top: 32px;
-    color: #30eb9d;
-}
-
-h4 {
-    margin-top: 8px;
-    margin-bottom: 22px;
-}
-
-p {
-    max-width: 500px;
-    line-height: 25px;
+    width: 100%;
 }
 
 footer {
