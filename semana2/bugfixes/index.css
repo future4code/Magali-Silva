@@ -2,7 +2,7 @@
   *
   *  ESTILOS GERAIS 
   *
-  **/
+**/
 
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet");
 
@@ -68,7 +68,7 @@ div>p:first-child {
   *
   *  ESTILOS HOME 
   *
-  **/
+**/
 
 #container-de-descricao {
     background-color: #2274a5;
@@ -78,7 +78,9 @@ div>p:first-child {
 }
 
 #container-de-descricao>ol {
-    padding: 15px 0px;
+    padding: 15px 345px;
+
+    text-align: left;
 }
 
 #container-para-comprar {
@@ -96,7 +98,7 @@ div>p:first-child {
   *
   *  ESTILOS COMPRAR 
   *
-  **/
+**/
 
 div:nth-child(2),
 div:last-child {
