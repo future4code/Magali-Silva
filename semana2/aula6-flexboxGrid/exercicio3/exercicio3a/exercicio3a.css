@@ -1,0 +1,95 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+    color: white;
+}
+
+/* ADICIONEI APENAS A ALTURA*/
+.green-background {
+    background-color: green;
+
+    height: 7vh;
+}
+
+.yellow-background {
+    background-color: yellow;
+
+    height: 7vh;
+}
+
+.pink-background {
+    background-color: fuchsia;
+
+    height: 58vh;
+}
+
+.blue-background {
+    background-color: blue;
+
+    height: 28vh;
+}
+
+.red-background {
+    background-color: red;
+
+    height: 14vh;
+}
+
+.lightgreen-background {
+    background-color: lightgreen;
+
+    height: 14vh;
+}
+
+.purple-background {
+    background-color: purple;
+
+    height: 7vh;
+}
+
+/* MEXI A PARTIR DAQUI */
+
+.green-background, .yellow-background, .pink-background, .blue-background, .red-background, .lightgreen-background, .purple-background {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+/* TOPO */
+#top-container {
+    display: flex;
+}
+
+.green-background {
+    flex-grow: 1;
+}
+
+.yellow-background {
+    flex-grow: 3;
+}
+
+/* MEIO */
+#middle-container {
+    display: flex;
+}
+
+#content2 {
+    flex-grow: 2;
+}
+
+#blank {
+    color: black;
+
+    flex-grow: 1;
+}
+
+#vertical-middle-container {
+    display: flex;
+    flex-direction: column;
+
+    flex-grow: 1;
+}
