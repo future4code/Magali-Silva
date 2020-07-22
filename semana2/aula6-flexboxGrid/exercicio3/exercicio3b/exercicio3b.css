@@ -1,0 +1,54 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+    color: white;
+}
+
+.green-background {
+    background-color: green;
+}
+
+.yellow-background {
+    background-color: yellow;
+}
+
+.pink-background {
+    background-color: fuchsia;
+}
+
+.blue-background {
+    background-color: blue;
+}
+
+.red-background {
+    background-color: red;
+}
+
+.lightgreen-background {
+    background-color: lightgreen;
+}
+
+.purple-background {
+    background-color: purple;
+}
+
+/* ALTEREI */
+
+#top-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 8fr 2fr 2fr 1fr;
+}
+
+.green-background {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.yellow-background {
+    grid-column: 2/5;
+    grid-row: ;
+}
