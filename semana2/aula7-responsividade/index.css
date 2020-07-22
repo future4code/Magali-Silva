@@ -1,0 +1,116 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+div > div {
+    border: 1px solid black;
+}
+
+#first-block {
+    background-color: red;
+}
+
+.blue-block {
+    background-color: blue;
+}
+
+.yellow-block {
+    background-color: yellow;
+}
+
+.green-block {
+    background-color: green;
+}
+
+.black-block {
+    background-color: black;
+    color: white;
+}
+
+.white-block {
+    background-color: white;
+}
+
+/* ALTEREI */
+* {
+    box-sizing: border-box;
+}
+
+#main-container {
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+
+    flex-wrap: wrap;
+}
+
+#first-block {
+    width: 100%;
+    height: 14%;
+}
+
+.blue-block, .yellow-block, .green-block, .white-block {
+    width: 32%;
+    height: 14%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 5px;
+}
+
+.black-block {
+    width: 48%;
+    height: 30%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 5px;
+}
+
+/* PRIMEIRA QUEBRA */
+@media screen and (min-device-width: 800px) and (max-device-width: 999px) {
+    .blue-block, .yellow-block, .white-block {
+        width: 47%;
+    }
+
+    #main-container :nth-child(4), #main-container :nth-child(7), #main-container :last-child {
+        width: 97%; /**/
+    }
+
+    .black-block {
+        width: 47%;
+    }
+}
+
+/* TERCEIRA QUEBRA */
+@media screen and (min-device-width: 421px) and (max-device-width: 800px) {
+    .blue-block, .yellow-block, .white-block {
+        width: 47%;
+    }
+
+    #main-container :nth-child(4), #main-container :nth-child(7), #main-container :last-child {
+        width: 97%;
+    }
+
+    .black-block {
+        width: 47%;
+    }
+}
+
+/* QUARTA QUEBRA */
+@media screen and (min-device-width: 10px) and (max-device-width:420px) {
+    #main-container > div {
+        width: 100%;
+        margin: 5px;
+    }
+}
