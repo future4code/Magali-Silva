@@ -34,3 +34,21 @@ body {
 .purple-background {
     background-color: purple;
 }
+
+/* ALTEREI */
+
+#top-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 8fr 2fr 2fr 1fr;
+}
+
+.green-background {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.yellow-background {
+    grid-column: 2/5;
+    grid-row: ;
+}
