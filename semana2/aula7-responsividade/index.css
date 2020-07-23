@@ -53,6 +53,8 @@ div > div {
 #first-block {
     width: 100%;
     height: 14%;
+
+    border: none;
 }
 
 .blue-block, .yellow-block, .green-block, .white-block {
@@ -84,7 +86,7 @@ div > div {
     }
 
     #main-container :nth-child(4), #main-container :nth-child(7), #main-container :last-child {
-        width: 97%; /**/
+        width: 97%;
     }
 
     .black-block {
@@ -92,7 +94,7 @@ div > div {
     }
 }
 
-/* TERCEIRA QUEBRA */
+/* SEGUNDA QUEBRA */
 @media screen and (min-device-width: 421px) and (max-device-width: 800px) {
     .blue-block, .yellow-block, .white-block {
         width: 47%;
@@ -107,10 +109,14 @@ div > div {
     }
 }
 
-/* QUARTA QUEBRA */
+/* TERCEIRA QUEBRA */
 @media screen and (min-device-width: 10px) and (max-device-width:420px) {
     #main-container > div {
         width: 100%;
         margin: 5px;
+    }
+
+    .black-block {
+        height: 14%;
     }
 }
