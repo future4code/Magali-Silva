@@ -135,7 +135,6 @@
 
 
 // d.
-
 // function verificaSeEhPar(numero) {
 //     if (numero % 2 === 0) {
 //         return true
@@ -214,21 +213,34 @@
 
 
 // c.
-const array = [10, 23, 45, 78, 90, 52, 35, 67, 84, 22]
-function verificaIndiceDoMaiorNumeroDoArray(arrayDeNumeros) {
-    let maiorNumeroDoArray = 0
-    let indiceDoMaiorNumero = -1
+// const array = [10, 23, 45, 78, 90, 52, 35, 67, 84, 22]
+// function verificaIndiceDoMaiorNumeroDoArray(arrayDeNumeros) {
+//     let maiorNumeroDoArray = 0
+//     let indiceDoMaiorNumero = -1
         
-    for (let elemento of arrayDeNumeros) {
-        if (maiorNumeroDoArray < elemento) {
-            maiorNumeroDoArray = elemento
-            indiceDoMaiorNumero++
-        } 
+//     for (let elemento of arrayDeNumeros) {
+//         if (maiorNumeroDoArray < elemento) {
+//             maiorNumeroDoArray = elemento
+//             indiceDoMaiorNumero++
+//         } 
+//     }
+
+//     return indiceDoMaiorNumero
+// }
+
+// console.log(verificaIndiceDoMaiorNumeroDoArray(array))
+
+
+// d.
+const array = [10, 23, 45, 78, 90, 52, 35, 67, 84, 22]
+function inverteArray(arrayDeNumeros) {
+    let arrayInvertido = []
+
+    for (let i = arrayDeNumeros.length - 1; i >= 0; i--) {
+        arrayInvertido.push(arrayDeNumeros[i]) 
     }
 
-    return indiceDoMaiorNumero
+    return arrayInvertido
 }
 
-console.log(verificaIndiceDoMaiorNumeroDoArray(array))
-
-
+console.log(inverteArray(array))
