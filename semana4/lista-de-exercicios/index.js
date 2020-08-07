@@ -56,3 +56,56 @@
 // 1590
 
 
+
+
+
+// EXERCÍCIOS DE LÓGICA DE PROGRAMAÇÃO
+
+// 1
+// // for
+// const numeros = [1, 2, 3, 4, 5]
+// let posicaoPares = []
+// let posicaoImpares = []
+
+// for (let i = 0; i < numeros.length; i++) {
+//     if (i %2 === 0) {
+//         posicaoPares.push(i)
+//     } else {
+//         posicaoImpares.push(i)
+//     }  
+// }
+
+// console.log(posicaoPares)
+// console.log(posicaoImpares)
+
+// // for of
+// const numeros = [1, 2, 3, 4, 5]
+
+// for (const numero of numeros) {
+//     if (numero % 2 === 0) {
+//         console.log(`O número ${numero} é par.`)
+//     } else {
+//         console.log(`O número ${numero} é ímpar.`)
+//     }
+// }
+
+
+// // forEach
+// const numeros = [1, 2, 3, 4, 5]
+// let array1 = []
+// let array2 = []
+
+// numeros.forEach(numero => {
+//     if (numero %2 === 0) {
+//         array1.push(numero+10)
+//     } else {
+//         array2.push(numero)
+//     } 
+// })
+
+// console.log(array1)
+// console.log(array2)
+
+
+
+
