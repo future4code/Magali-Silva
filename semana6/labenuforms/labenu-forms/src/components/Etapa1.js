@@ -1,5 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+
+import PerguntaAberta from './PerguntaAberta'
+import PerguntaFechada from './PerguntaFechada'
 
 const FormularioEtapa1 = styled.div`
   display: flex;
@@ -13,13 +16,13 @@ function Etapa1() {
     return (
         <FormularioEtapa1>
             <h3>ETAPA 1 - DADOS GERAIS</h3>
-            <p>1. Qual o seu nome?</p>
+            <PerguntaAberta pergunta={"1. Qual o seu nome?"}/>    
             <input />
-            <p>2. Qual a sua idade?</p>
+            <PerguntaAberta pergunta={"2. Qual a sua idade?"}/>
             <input />
-            <p>3. Qual o seu email?</p>
+            <PerguntaAberta pergunta={"3. Qual o seu email?"}/>
             <input />
-            <p>4. Qual o sua escolaridade?</p>
+            <PerguntaFechada pergunta={"4. Qual o sua escolaridade?"}/>
             <select>
                 <option>Ensino médio incompleto</option>
                 <option>Ensino médio completo</option>

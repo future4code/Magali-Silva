@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+
+import PerguntaAberta from './PerguntaAberta'
 
 const FormularioFinal = styled.div`
   display: flex;
@@ -10,16 +12,13 @@ const FormularioFinal = styled.div`
 `
 
 
-class Final extends React.Component {
-  render () {
-
+function Final()  {
     return (
         <FormularioFinal>
             <h3>O FORMULÁRIO ACABOU</h3>
             <p>Muito obrigado por participar! Entraremos em contato!</p>
         </FormularioFinal>
     );
-  }  
 }
 
 export default Final;

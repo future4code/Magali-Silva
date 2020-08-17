@@ -31,8 +31,6 @@ class App extends React.Component {
         return <Etapa3 />
       case 4:
         return <Final />
-      default:
-        return <Etapa1 />
     }
   }
 
