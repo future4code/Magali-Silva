@@ -9,27 +9,28 @@ const FormularioEtapa1 = styled.div`
   flex-direction: column;
   align-items: center;
 
-  margin-bottom:60px;
 `
 
 function Etapa1() {
     return (
-        <FormularioEtapa1>
+        <div>
             <h3>ETAPA 1 - DADOS GERAIS</h3>
-            <PerguntaAberta pergunta={"1. Qual o seu nome?"}/>    
-            <input />
-            <PerguntaAberta pergunta={"2. Qual a sua idade?"}/>
-            <input />
-            <PerguntaAberta pergunta={"3. Qual o seu email?"}/>
-            <input />
-            <PerguntaFechada pergunta={"4. Qual o sua escolaridade?"}/>
-            <select>
-                <option>Ensino médio incompleto</option>
-                <option>Ensino médio completo</option>
-                <option>Ensino superior incompleto</option>
-                <option>Ensino superior completo</option>
-            </select>            
-        </FormularioEtapa1>
+            <FormularioEtapa1>
+                <PerguntaAberta pergunta={"1. Qual seu nome?"}/>    
+                <PerguntaAberta pergunta={"2. Qual sua idade?"}/>
+                <PerguntaAberta pergunta={"3. Qual seu email?"}/>
+                
+                <PerguntaFechada 
+                    pergunta={"4. Qual sua escolaridade?"} 
+                    opcoes={[
+                        "Ensino Médio Incompleto",
+                        "Ensino Médio Completo",
+                        "Ensino Superior Incompleto",
+                        "Ensino Superior Completo",
+                    ]}
+                />
+            </FormularioEtapa1>       
+        </div>
     )  
 } 
 

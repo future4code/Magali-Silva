@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import PerguntaAberta from './PerguntaAberta'
-
-const FormularioFinal = styled.div`
+const ContainerFinal = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,10 +12,10 @@ const FormularioFinal = styled.div`
 
 function Final()  {
     return (
-        <FormularioFinal>
+        <ContainerFinal>
             <h3>O FORMULÁRIO ACABOU</h3>
             <p>Muito obrigado por participar! Entraremos em contato!</p>
-        </FormularioFinal>
+        </ContainerFinal>
     );
 }
 

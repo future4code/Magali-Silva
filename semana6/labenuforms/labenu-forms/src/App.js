@@ -12,6 +12,13 @@ const ContainerFormulario = styled.div`
   flex-direction: column;
   align-items: center;
 `
+const Botao = styled.button`
+  margin-top: 20px;
+
+  border-radius: 10px;
+  border: solid 1px;
+
+`
 
 
 class App extends React.Component {
@@ -44,7 +51,7 @@ class App extends React.Component {
     return (
       <ContainerFormulario>
         {this.renderizaEtapa()}
-        { (this.state.etapa !== 4) && ( <button onClick={this.onClickProximaEtapa}>Próxima etapa</button> )}
+        { (this.state.etapa !== 4) && ( <Botao onClick={this.onClickProximaEtapa}>Continuar</Botao> )}
       </ContainerFormulario>
     );
 
