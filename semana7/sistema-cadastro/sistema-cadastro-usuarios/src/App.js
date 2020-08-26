@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import ListaUsuarios from './components/ListaUsuarios';
 import CadastroUsuario from './components/CadastroUsuario';
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
