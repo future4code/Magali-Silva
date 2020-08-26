@@ -1,5 +1,27 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components'
+
+const ContainerUsuario = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  width: 300px;
+
+  border-bottom: solid 1px;
+`
+
+const Deletar = styled.button`
+  background-color: transparent;
+  color: red;
+  border: none;
+  outline: none;
+
+  :hover {
+    font-weight: bold;
+    cursor: pointer;
+  }
+`
 
 class ListaUsuarios extends React.Component {
   state = {
@@ -38,11 +60,11 @@ class ListaUsuarios extends React.Component {
 
     request
       .then((resposta) => {
-        console.log("Deletou usuario")
+        alert("Usuário removido com sucesso")
         this.pegarUsuarios()
       })
       .catch((erro) => {
-        console.log(erro)
+        alert("Ocorreu um erro ao tentar remover o usuário")
       }
     )
   }
@@ -55,13 +77,21 @@ class ListaUsuarios extends React.Component {
   render() {
     return (
       <div>
-        <h1>Lista de usuários</h1>
+        <h2>Usuários Cadastrados:</h2>
         {this.state.listaUsuarios.map((usuario) => {
           return (
-            <div>
+            <ContainerUsuario>
               <p key={usuario.id} >{usuario.name}</p>
-              <button onClick={() => this.deletarUsuario(usuario.id)} >Deletar usuário</button>
-            </div>
+              <Deletar 
+                onClick={
+                  () => {
+                    if (window.confirm(`Tem certeza de que deseja deletar ${usuario.name}?`)) {
+                      this.deletarUsuario(usuario.id)
+                    }
+                  }
+                } 
+              > X </Deletar>
+            </ContainerUsuario>
           )
         })
         }

@@ -1,44 +1,27 @@
 import React from 'react';
 import './App.css';
-import axios from 'axios';
 import ListaUsuarios from './components/ListaUsuarios';
+import CadastroUsuario from './components/CadastroUsuario';
+import styled from 'styled-components'
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 100px;
+`
+
+const Botao = styled.button`
+  position: absolute;
+  top: 10px;
+  left: 10px;
+`
 
 class App extends React.Component {
   state = {
-    valorInputName: '',
-    valorInputEmail: '',
     clickBotaoLista: false
-  }
-
-  cadastrarUsuario = () => {
-    const body = {
-      name: this.state.valorInputName,
-      email: this.state.valorInputEmail
-    };
-
-    const request = axios.post(
-      "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
-      body,
-      {
-        headers: {
-          Authorization: "magali-silva-jackson"
-        }
-      }
-    );
-
-    request
-      .then((resposta) => {
-        alert(`O usuário ${this.state.valorInputName} foi cadastrado com sucesso!`)
-        this.setState({ 
-          valorInputName: '',
-          valorInputEmail: ''
-         })
-      })
-      .catch((erro) => {
-        console.log("Erro ao cadastrar usuário.")
-      }
-    );
-  };
+  }  
 
   onClickLista = () => {
     this.setState({
@@ -47,42 +30,23 @@ class App extends React.Component {
   }
 
   render() {
-    const onChangeInputName = (event) => {
-      this.setState({        
-        valorInputName: event.target.value        
-      })
-    };
-
-    const onChangeInputEmail = (event) => {
-      this.setState({
-        valorInputEmail: event.target.value
-      })
-    };
-
     const listaClicada = this.state.clickBotaoLista;
 
     if (!listaClicada) {
       return (
-        <div>
-          <div>
-            <label>Nome:</label><input value={this.state.valorInputName} onChange={onChangeInputName} />
-            <label>E-mail:</label><input value={this.state.valorInputEmail} onChange={onChangeInputEmail} />
-            <button onClick={this.cadastrarUsuario}>Salvar</button>
-          </div>   
-  
-          <button onClick={this.onClickLista} >Ir para lista de usuários</button>                    
-        </div>
+        <Container>
+          <Botao onClick={this.onClickLista}>Ir para lista de usuários</Botao>                    
+          <CadastroUsuario/>  
+        </Container>
       );
     } else {
       return (
-        <div>
-          <button onClick={this.onClickLista}>Ir para cadastro de usuários</button> 
+        <Container>
+          <Botao onClick={this.onClickLista}>Ir para cadastro de usuários</Botao> 
           <ListaUsuarios/>            
-        </div>
+        </Container>
       );
     }
-
-    
   }
 }
 
