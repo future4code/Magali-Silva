@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { baseUrl, headers } from '../constants/axiosConstants'
-import styled from 'styled-components';
+import { Container, DeleteButton, Title, Link } from '../style/style'
 import PlaylistDetails from '../components/PlaylistDetails'
 
 class Playlists extends React.Component {
@@ -46,35 +46,36 @@ class Playlists extends React.Component {
 
 
     render() {
-
-        if (this.state.clickedPlaylist) {
-           return (
-            <PlaylistDetails
                 
-            />
-           )           
-        } else {
-            return (
-                <div>
-                    <h2>Playlists</h2>
-                    {this.state.playlists.map((item) => {
+        return (
+            <Container flexDirection={"column"} padding={"50px 0px"}>
+                <Title>Suas playlists</Title>
+                
+                {this.state.playlists.map((item) => {
+                    if (this.state.clickedPlaylist) {
+                                                
                         return (
-                            <div key={item.id}>
-                                <p 
-                                    onClick={this.onClickPlaylistDetails}   
-                                                        
-                                >{item.name}</p>
-                                <button
-                                    onClick={() => {if (window.confirm(`Tem certeza de que deseja deletar a playlist ${item.name}?`)) {this.deletePlaylist(item.id) } } } 
-                                >Deletar</button>
-                            </div>                   
+                            <PlaylistDetails
+                                key = {item.name}
+                                id={item.id}
+                                playlistName={item.name}
+                            />
                         )
-                    })}
-                </div>
-            );
-        }
+                    } else {
+                        return (
+                            <Container flexDirection={"row"} key={item.id} width={"400px"} justifyContent={"space-between"}>
+                                <Link onClick={this.onClickPlaylistDetails}>{item.name}</Link>
+                                <DeleteButton
+                                    onClick={() => {if (window.confirm(`Tem certeza de que deseja deletar a playlist ${item.name}?`)) {this.deletePlaylist(item.id) } } } 
+                                > X </DeleteButton>
+                            </Container>                   
+                        )
+                    }
+                })}
+                
+            </Container>
+        );
     }
-  
 }
 
 export default Playlists;

@@ -1,12 +1,9 @@
 import React from 'react';
 import './App.css';
-// import axios from 'axios';
-// import { baseUrl, headers } from './constants/axiosConstants'
-// import styled from 'styled-components';
+import { Container, Image, Link } from './style/style'
+import image from './img/labefy.png'
 import CreatePlaylist from './components/CreatePlaylist'
 import Playlists from './components/Playlists'
-
-
 
 class App extends React.Component {
   state = {
@@ -24,19 +21,19 @@ class App extends React.Component {
 
     if (!clickedList) {
       return (
-        <div>
+        <Container flexDirection={"column"}>
+          <Image src={image} heightImage={"15vh"}/>
           <CreatePlaylist/>
-          <button onClick={this.onClickList}>Ver playlists</button>
-          
-        </div>
+          <Link onClick={this.onClickList}>Veja suas playlists</Link>          
+        </Container>
       );
     } else {
       return (
-        <div>
-          <CreatePlaylist/>
-          <button onClick={this.onClickList}>Ver playlists</button>
+        <Container flexDirection={"column"} >
+          <Image src={image} heightImage={"10vh"}/>
           <Playlists/>
-        </div>
+          <Link onClick={this.onClickList}>Criar playlist</Link>
+        </Container>
       );
     }
 

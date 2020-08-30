@@ -1,11 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import { baseUrl, headers } from '../constants/axiosConstants'
-import styled from 'styled-components';
+import { Container, Button, Input, Title } from '../style/style'
 
-
-
-class createPlaylist extends React.Component {
+class CreatePlaylist extends React.Component {
     state = {
         valueInput: ""
     }
@@ -21,8 +19,7 @@ class createPlaylist extends React.Component {
 
                 this.setState({
                     valueInput: ""
-                })
-                
+                })                
             })
             .catch((error) => {
                 alert("Ocorreu um erro ao adicionar a playlist.")
@@ -34,23 +31,15 @@ class createPlaylist extends React.Component {
         console.log(this.state.valueInput)
     }
 
-    
-
     render() {
         return (
-            <div>
-                <h2>Crie uma playlist</h2>
-                <input 
-                    placeholder={"Nome da playlist"} 
-                    onChange={this.controlInput}
-                />
-                <button
-                    onClick={this.createPlaylist}
-                >Criar</button>
-            </div>
+            <Container flexDirection={"column"} padding={"50px 0px"}>
+                <Title>Crie uma playlist</Title>                
+                <Input placeholder={"Insira o nome da playlist"} onChange={this.controlInput}/>
+                <Button onClick={this.createPlaylist}>Criar</Button>                
+            </Container>
         );
-  }
-  
+    }  
 }
 
-export default createPlaylist;
+export default CreatePlaylist;
