@@ -9,14 +9,23 @@ export const Container = styled.div`
     height: 600px;
 `
 
-export const ContainerPerson = styled.div`
-    background-color: rgba(150, 150, 150, .1);
-    border-radius: 10px;
+export const Div = styled.div`
+    height: 90%;
 
+    overflow: auto;
+`
+
+export const ContainerPerson = styled.div`
     display: flex;
     align-items: center;
 
-    margin: 10px;
+    margin: 10px;  
+
+    :hover {
+        cursor: pointer;
+        background-color: rgba(150, 150, 150, .1);
+        border-radius: 10px;
+    }
 `
 
 export const Image = styled.img`
@@ -25,5 +34,5 @@ export const Image = styled.img`
 
     border-radius: 50%;
 
-    margin: 5px;
+    margin: 10px;
 `

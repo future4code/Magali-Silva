@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { baseUrl, student } from '../../constants/axiosConstants'
-import { Container, ContainerPerson, Image } from '../Matches/styled';
+import { Container, Div, ContainerPerson, Image } from '../Matches/styled';
 import NavBar from '../../components/NavBar/NavBar'
 import people from '../../assets/icons/people.svg'
 
@@ -29,7 +29,7 @@ function Matches(props) {
         srcIcon={people}
         altIcon={"Ícone people"} 
       />
-      <div>
+      <Div>
         {matchesList.map((person) => {
           return (
             <ContainerPerson key={person.id}>
@@ -38,7 +38,7 @@ function Matches(props) {
             </ContainerPerson>
           )
         })}
-      </div>
+      </Div>
     </Container>
   );
 }

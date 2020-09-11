@@ -26,25 +26,14 @@ function Home(props) {
   }, [])
 
   const choosePerson = (choiceMatch) => {
-    let body = {}
-
-    if (choiceMatch === true) {
-      body = {
-        id: profileId,
-        choice: true
-      }
-    } else {
-      body = {
-        id: profileId,
-        choice: false
-      }
+    let body = {
+      id: profileId,
+      choice: choiceMatch
     }
 
     axios.post( `${baseUrl}:${student}/choose-person`, body )
     .then((response) => {
-      console.log(response.data.isMatch)
-      console.log("apertou no botão")
-      console.log(body)
+      console.log(response)
     })
     .catch((error) => {
       console.log(error)

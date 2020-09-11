@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-    /* background-color: rgba(150, 150, 150, 0.1); */
-    
+export const Container = styled.div`    
     width: 100%;
     height: 8%;
 `

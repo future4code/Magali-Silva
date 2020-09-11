@@ -37,19 +37,23 @@ export const Photo = styled.img`
     opacity: 90%;
 `
 export const Identification = styled.div`
+    width: 100%;
     position: absolute;
     bottom: 0;
 
-    padding: 20px;
+    border-radius: 10px;
+
+    background-image: linear-gradient(1deg, grey, transparent);
 `
 
 export const Name = styled.p`
     color: white;
     font-size: 26px;
 
-    padding-bottom: 5px;
+    padding: 5px 20px;
 `
 
 export const Bio = styled.p`
     color: white;
+    padding: 0 20px 20px 20px;
 `

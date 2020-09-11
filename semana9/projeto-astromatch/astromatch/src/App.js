@@ -27,11 +27,7 @@ function App() {
   const [ screen, setScreen ] = useState(true)
   
   const onClickClear = () => {
-    const body = {
-      id: "PatusZf4mHH6UoZfYC8I"
-    }
-
-    axios.put(`${baseUrl}:${student}/clear`, body)
+    axios.put(`${baseUrl}:${student}/clear`)
       .then((response) => {
         console.log(response)
       })
