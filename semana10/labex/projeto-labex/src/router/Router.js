@@ -4,7 +4,7 @@ import HomePage from '../screens/HomePage/HomePage';
 import LoginPage from '../screens/LoginPage/LoginPage';
 import AdminPage from '../screens/AdminPage/AdminPage';
 import CreateTripPage from '../screens/CreateTripPage/CreateTripPage';
-import SubscriptionsListPage from '../screens/SubscriptionsListPage/SubscriptionsListPage'
+// import SubscriptionsListPage from '../screens/SubscriptionsListPage/SubscriptionsListPage'
 import ListTripsPage from '../screens/ListTripsPage/ListTripsPage';
 import TripDetailsPage from '../screens/TripDetailsPage/TripDetailsPage';
 import SubscriptionPage from '../screens/SubscriptionPage/SubscriptionPage';
@@ -21,27 +21,27 @@ const Router = () => {
                     <LoginPage />
                 </Route>
 
-                <Route exact path={"/login/:id-administrador"}>
+                <Route exact path={"/login/admin"}>
                     <AdminPage />
                 </Route>
 
-                <Route exact path={"/login/:id-administrador/criar-viagem"}>
+                <Route exact path={"/trips/create"}>
                     <CreateTripPage />
                 </Route>
 
-                <Route exact path={"/login/:id-administrador/inscricoes"}>
+                {/* <Route exact path={"/login/:id-administrador/inscricoes"}>
                     <SubscriptionsListPage />
-                </Route>
+                </Route> */}
 
-                <Route exact path={"/viagens"}>
+                <Route exact path={"/trips/list"}>
                     <ListTripsPage />
                 </Route>
 
-                <Route exact path={"/viagens/detalhes/:id-viagem"}>
+                <Route exact path={"/trips/details"}>
                     <TripDetailsPage />
                 </Route>
 
-                <Route exact path={"/inscricao"}>
+                <Route exact path={"/application-form"}>
                     <SubscriptionPage />
                 </Route>
 

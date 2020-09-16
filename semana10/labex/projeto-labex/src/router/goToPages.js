@@ -7,26 +7,26 @@ export const goToLoginPage = (history) => {
 }
 
 export const goToAdminPage = (history) => {
-    history.push(`/login/:id-administrador`);
+    history.push(`/login/admin`);
 }
 
 export const goToCriateTripPage = (history) => {
-    history.push(`/login/:id-administrador/criar-viagem`);
+    history.push(`/trips/create`);
 }
 
-export const goToSubscriptionsListPage = (history) => {
-    history.push(`/login/:id-administrador/inscricoes`);
-}
+// export const goToSubscriptionsListPage = (history) => {
+//     history.push(`/login/:id-administrador/inscricoes`);
+// }
 
 export const goToListTripsPage = (history) => {
-    history.push(`/viagens`);
+    history.push(`/trips/list`);
 }
 
 export const goToTripDetailsPage = (history) => {
-    history.push(`/viagens/detalhes/:id-viagem`);
+    history.push(`/trips/details`);
 }
 
 export const goToSubscriptionPage = (history) => {
-    history.push(`/inscricao`);
+    history.push(`/application-form`);
 }
 
