@@ -14,10 +14,6 @@ export const goToCriateTripPage = (history) => {
     history.push(`/trips/create`);
 }
 
-// export const goToSubscriptionsListPage = (history) => {
-//     history.push(`/login/:id-administrador/inscricoes`);
-// }
-
 export const goToListTripsPage = (history) => {
     history.push(`/trips/list`);
 }

@@ -1,12 +1,26 @@
 import React from 'react';
 import './App.css';
-import Router from './router/Router'
+import Router from './router/Router';
+import styled from 'styled-components';
+import background from './assets/img/space.jpg';
 
-function App() {
+const Div = styled.div`
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url(${background});
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  background-origin: border-box;
+  background-position: initial;
+`
+
+const App = () => {
+
   return (
-    <div className="App">
+    <Div>
       <Router />
-    </div>
+    </Div>
   );
 }
 

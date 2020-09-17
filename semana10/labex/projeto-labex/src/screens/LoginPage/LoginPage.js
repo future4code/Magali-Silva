@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { goToAdminPage, goToHomePage } from '../../router/goToPages'
-import axios from 'axios'
-import { baseUrl } from '../../constants/axiosConstants'
+import { goToHomePage } from '../../router/goToPages';
+import { useChangePageTitle } from '../../hooks/useChangePageTitle';
+import axios from 'axios';
+import { baseUrl } from '../../constants/axiosConstants';
+import { Container, Div } from './styled'
+import { Input } from '../../components/Input/styled';
 
 function LoginPage() {
   const [ emailValue, setEmailValue ] = useState("");
   const [ passwordValue, setPasswordValue ] = useState("");
   const history = useHistory();
+
+  
+  useChangePageTitle("LABEX - Login")
 
   useEffect(() => {
     const token = window.localStorage.getItem("token");
@@ -44,15 +50,14 @@ function LoginPage() {
   };
 
   return (
-    <div>
-      <p>ESSA É A PÁGINA DE LOGIN DO ADMINISTRADOR</p>
-      <div>
-        <input placeholder={"Email"} value={emailValue} onChange={handleEmailChange} />
-        <input placeholder={"Senha"}  value={passwordValue} onChange={handlePasswordChange} />
+    <Container>
+      <Div>
+        <Input placeholder={"Email"} value={emailValue} type={"email"} onChange={handleEmailChange}/>
+        <Input placeholder={"Senha"}  value={passwordValue} type={"text"} onChange={handlePasswordChange}/>
         <button onClick={handleLogin} >LOGIN</button>
-      </div>
+      </Div>
       <button onClick={() => goToHomePage(history)} >HOME</button>
-    </div>
+    </Container>
   );
 }
 

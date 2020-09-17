@@ -1,23 +1,20 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { goToCriateTripPage, goToHomePage } from '../../router/goToPages';
+import { goToCriateTripPage, goToListTripsPage, goToHomePage } from '../../router/goToPages';
+import { useChangePageTitle } from '../../hooks/useChangePageTitle'
+import { useProtectPage } from '../../hooks/useProtectPage'
 
 function AdminPage() {
   const history = useHistory();
   
-  useEffect(() => {
-    const token = window.localStorage.getItem("token");
-
-    if (!token) {
-        history.push("/")
-    }
-  }, [history]);
+  useChangePageTitle("LABEX - Administrador")
+  useProtectPage()
 
   return (
     <div>
       <p>ESSA É A PÁGINA DO ADMINISTRADOR</p>
-      <button onClick={() => goToCriateTripPage(history)}>CRIAR VIAGEM</button>
-      {/* <button onClick={() => goToSubscriptionsListPage(history)} > INSCRIÇÕES </button> */}
+      <button onClick={() => goToListTripsPage(history)} > VIAGENS </button>
+      <button onClick={() => goToCriateTripPage(history)}>ADICIONAR VIAGEM</button>
       <br />
       <button onClick={() => goToHomePage(history)} >HOME</button>
     </div>
