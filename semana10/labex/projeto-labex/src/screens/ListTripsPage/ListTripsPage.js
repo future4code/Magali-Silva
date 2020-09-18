@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { goToTripDetailsPage, goToHomePage, goToSubscriptionPage } from '../../router/goToPages';
+import { goToTripDetailsPage, goToHomePage, goToSubscriptionPage, goBack } from '../../router/goToPages';
 import { useChangePageTitle } from '../../hooks/useChangePageTitle';
 import { useRequestData } from '../../hooks/useRequestData';
 import { baseUrl } from '../../constants/axiosConstants';
@@ -23,12 +23,12 @@ function ListTripsPage() {
   }
 
   // Verifica se tem administrador logado. Se tiver, o botão da página da lista de viagens muda para "VER DETALHES", se não o botão muda para "INSCREVA-SE"
-  const changeButton = () => {
+  const changeButton = (id) => {
     const token = window.localStorage.getItem("token");
     
     if (token) {
       return (
-        <TripButton buttonOnClick={() => goToTripDetailsPage(history)} text={"VER DETALHES"} />
+        <TripButton buttonOnClick={() => goToTripDetailsPage(history, id)} text={"VER DETALHES"} />
       )
       
     } else {
@@ -50,12 +50,12 @@ function ListTripsPage() {
               <p> <strong>Planeta:</strong> {trip.planet}</p>
               <p> <strong>Duração:</strong> {trip.durationInDays} dias</p>
               <p> <strong>Data:</strong> {trip.date}</p>
-              {changeButton()}
+              {changeButton(trip.id)}
             </TripCard>
           )
         })}
-        {/* <button onClick={() => goToTripDetailsPage(history)}>VER DETALHES</button> */}
       </TripsContainer>
+      <button onClick={() => goBack(history)} >VOLTAR</button>
       <button onClick={() => goToHomePage(history)} >HOME</button>
     </Container>
   );

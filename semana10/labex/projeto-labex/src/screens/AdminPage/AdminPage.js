@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { goToCriateTripPage, goToListTripsPage, goToHomePage } from '../../router/goToPages';
+import { goToCriateTripPage, goToListTripsPage, goToHomePage, goBack } from '../../router/goToPages';
 import { useChangePageTitle } from '../../hooks/useChangePageTitle'
 import { useProtectPage } from '../../hooks/useProtectPage'
 
@@ -16,6 +16,7 @@ function AdminPage() {
       <button onClick={() => goToListTripsPage(history)} > VIAGENS </button>
       <button onClick={() => goToCriateTripPage(history)}>ADICIONAR VIAGEM</button>
       <br />
+      <button onClick={() => goBack(history)} >VOLTAR</button>
       <button onClick={() => goToHomePage(history)} >HOME</button>
     </div>
   );

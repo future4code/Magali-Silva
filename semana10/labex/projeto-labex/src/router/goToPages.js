@@ -18,11 +18,14 @@ export const goToListTripsPage = (history) => {
     history.push(`/trips/list`);
 }
 
-export const goToTripDetailsPage = (history) => {
-    history.push(`/trips/details`);
+export const goToTripDetailsPage = (history, id) => {
+    history.push(`/trips/details/${id}`);
 }
 
 export const goToSubscriptionPage = (history) => {
     history.push(`/application-form`);
 }
 
+export const goBack = (history) => {
+    history.goBack()
+}

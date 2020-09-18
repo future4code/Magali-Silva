@@ -34,7 +34,7 @@ const Router = () => {
                     <ListTripsPage />
                 </Route>
 
-                <Route exact path={"/trips/details"}>
+                <Route exact path={`/trips/details/:id`}>
                     <TripDetailsPage />
                 </Route>
 

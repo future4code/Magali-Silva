@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { goToHomePage } from '../../router/goToPages';
+import { goToHomePage, goBack } from '../../router/goToPages';
 import { useChangePageTitle } from '../../hooks/useChangePageTitle';
 import axios from 'axios';
 import { baseUrl } from '../../constants/axiosConstants';
@@ -56,6 +56,7 @@ function LoginPage() {
         <Input placeholder={"Senha"}  value={passwordValue} type={"text"} onChange={handlePasswordChange}/>
         <button onClick={handleLogin} >LOGIN</button>
       </Div>
+      <button onClick={() => goBack(history)} >VOLTAR</button>
       <button onClick={() => goToHomePage(history)} >HOME</button>
     </Container>
   );
