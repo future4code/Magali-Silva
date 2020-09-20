@@ -1,8 +1,10 @@
 import React from 'react';
+import { Select } from './styled'
 
 const SelectCountry = (props) => {
     return (
-        <select value={props.value} name={props.name} onChange={props.onChange} type={props.type} required={props.required} > 
+        <Select value={props.value} name={props.name} onChange={props.onChange} type={props.type} required={props.required} > 
+            <option disabled >País</option>
             <option value="África do Sul">África do Sul</option>
             <option value="Albânia">Albânia</option>
             <option value="Alemanha">Alemanha</option>
@@ -177,7 +179,7 @@ const SelectCountry = (props) => {
             <option value="Zaire">Zaire</option>
             <option value="Zâmbia">Zâmbia</option>
             <option value="Zimbábue">Zimbábue</option>
-        </select>
+        </Select>
       );
 }
 

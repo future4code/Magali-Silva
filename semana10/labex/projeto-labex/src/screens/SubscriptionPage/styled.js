@@ -1,19 +1,11 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-    /* background-color:red; */
-
-    height: 80%;
+    height: 75%;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-`
-
-export const H2 = styled.h2`
-    color: rgba(245, 222, 179, .9);
-
-    padding: 30px 0 10px;
 `
 
 export const Form = styled.form`
@@ -26,6 +18,61 @@ export const Form = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
-    padding: 20px;
+    padding: 10px 0;
+`
+
+export const Input = styled.input`
+    height: 35px;
+    max-width: 400px;
+    width: 90%;
+
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    border-bottom: solid 2px black;
+
+
+    ::placeholder {
+        color: black;
+    }
+
+    margin-bottom: 15px;
+`
+
+export const Select = styled.select`
+    height: 35px;
+    max-width: 400px;
+    width: 90%;
+
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    border-bottom: solid 2px black;
+
+    margin-bottom: 15px;
+`
+export const Button = styled.button`
+    border: none;
+    outline: none;
+
+    width: 120px;
+
+    padding: 8px;
+
+    background-color: rgba(210, 119, 30, 1);
+
+    color: #262320;
+    font-size: 16px;
+
+    border-radius: 20px;
+
+    :hover {
+        cursor: pointer;
+        background-color: rgba(38, 35, 32, .6);
+        color: wheat;
+    }
 `

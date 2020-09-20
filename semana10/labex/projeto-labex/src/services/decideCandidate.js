@@ -1,13 +1,10 @@
-import react from 'react'
 import axios from 'axios';
 import { baseUrl } from '../constants/axiosConstants'
 
-export const decideCandidate = (tripId, candidateId, aprove) => {
+export const decideCandidate = (tripId, candidateId, approve) => {
     const body = {
-        aprove: aprove
+        approve: approve
     }
-
-    console.log(body, tripId, candidateId)
 
     axios
         .put(`${baseUrl}/trips/${tripId}/candidates/${candidateId}/decide`, body,
@@ -16,7 +13,13 @@ export const decideCandidate = (tripId, candidateId, aprove) => {
             auth: localStorage.getItem("token") 
         }})
         .then((response) => {
+            if (approve) {
+                alert("Candidato aprovado com sucesso!")
+            } else {
+                alert("Candidato recusado!")
+            }
             console.log(response)
+            window.location.reload(true)
         })
         .catch((error) => {console.log(error)})
 }

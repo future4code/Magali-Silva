@@ -10,8 +10,6 @@ export const applyToTrip = (id, name, age, applicationText, profession, country 
         country: country
     }
 
-    console.log(id)
-    console.log(body)
 
     axios
         .post(`${baseUrl}/trips/${id}/apply`, body)

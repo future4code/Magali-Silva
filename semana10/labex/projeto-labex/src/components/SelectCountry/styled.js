@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-export const Input = styled.input`
+export const Select = styled.select`
     height: 35px;
-    max-width: 280px;
+    max-width: 400px;
     width: 90%;
 
     border: none;
@@ -10,11 +10,6 @@ export const Input = styled.input`
     background-color: transparent;
 
     border-bottom: solid 2px black;
-
-
-    ::placeholder {
-        color: black;
-    }
 
     margin-bottom: 15px;
 `

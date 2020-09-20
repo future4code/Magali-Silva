@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
-import { goToHomePage, goBack } from '../../router/goToPages';
+import Axios from 'axios';
+import { useParams } from 'react-router-dom';
 import { useChangePageTitle } from '../../hooks/useChangePageTitle'
 import { useProtectPage } from '../../hooks/useProtectPage'
-import { useRequestData } from '../../hooks/useRequestData';
 import { baseUrl } from '../../constants/axiosConstants'
-import Axios from 'axios';
-import { Container, H3, I, DetailContainer, PersonContainer } from './styled'
-import TripButton from '../../components/TripButton/TripButton'
 import { decideCandidate } from '../../services/decideCandidate'
+import TripButton from '../../components/TripButton/TripButton'
+import { Container, H2, I, DetailContainer, PersonContainer, ButtonContainer } from './styled'
 
 function TripDetailsPage() {
-  const history = useHistory();
 
   useChangePageTitle("Adicionar Viagem")
   useProtectPage()
@@ -36,19 +33,13 @@ function TripDetailsPage() {
 
   useEffect(() => {
     getTripDetail()
-
   }, [])
 
   return (
     <Container>
-      <H3> Detalhes da viagem <I>{trip.name}</I> </H3>
-      <DetailContainer>
-        <p> <strong>Descrição:</strong> {trip.description}</p>
-        <p> <strong>Planeta:</strong> {trip.planet}</p>
-        <p> <strong>Duração:</strong> {trip.durationInDays} dias</p>
-        <p> <strong>Data:</strong> {trip.date}</p>
-        <div>
-          <p> <strong>Candidatos:</strong> </p>
+      <H2> Detalhes da viagem <I>{trip.name}</I> </H2>
+      <DetailContainer>        
+          <h3> <strong>Candidatos</strong> </h3>
           {candidate.map((person) => {
             return (
               <PersonContainer key={person.id} >
@@ -57,17 +48,15 @@ function TripDetailsPage() {
                 <p> <strong>Profissão: </strong>{person.profession}</p>
                 <p> <strong>País:</strong> {person.country}</p>
                 <p> <strong>Motivação:</strong> {person.applicationText}</p>
-                <div> {/* falta testar se está aprovando o candidato ou não */}
+                <ButtonContainer>
                   <TripButton  buttonOnClick={() => decideCandidate(trip.id, person.id, true)} text={"✔"} /> 
                   <TripButton  buttonOnClick={() => decideCandidate(trip.id, person.id, false)} text={"✖"} />
-                </div>
+                </ButtonContainer>
               </PersonContainer>
             )            
           })}
-        </div>
+        
       </DetailContainer>
-      <button onClick={() => goBack(history)} >VOLTAR</button>
-      <button onClick={() => goToHomePage(history)} >HOME</button>
     </Container>
   );
 }

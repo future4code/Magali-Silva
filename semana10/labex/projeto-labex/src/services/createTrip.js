@@ -10,8 +10,6 @@ export const createTrip = (name, planet, date, description, durationInDays) => {
         durationInDays: durationInDays
     }
 
-    console.log(body)
-
     axios
         .post(`${baseUrl}/trips`, body, 
         { 

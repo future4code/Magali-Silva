@@ -1,19 +1,17 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
-import { goToHomePage, goBack } from '../../router/goToPages';
-import { baseUrl } from '../../constants/axiosConstants'
 import { useChangePageTitle } from '../../hooks/useChangePageTitle'
 import { useRequestData } from '../../hooks/useRequestData'
 import { useForm } from '../../hooks/useForm'
-import { Container, H2, Form } from './styled'
-import SelectCountry from '../../components/SelectCountry/SelectCountry'
 import { applyToTrip } from '../../services/applyToTrip';
+import { baseUrl } from '../../constants/axiosConstants'
+import SelectCountry from '../../components/SelectCountry/SelectCountry'
+import Title from '../../components/Title/Title'
+import { Container, Form, Input, Select, Button } from './styled'
 
 
 function SubscriptionPage() {
-  const history = useHistory();
 
-  const [ trips, setTrips] = useRequestData(`${baseUrl}/trips`, [])
+  const [ trips ] = useRequestData(`${baseUrl}/trips`, [])
   
   useChangePageTitle("LABEX - Inscrição")
 
@@ -42,14 +40,11 @@ function SubscriptionPage() {
     resetState()
   }
 
-
-
-
   return (
     <Container>
-      <H2>Faça sua inscrição</H2>
+      <Title title={"Faça sua inscrição"} />
       <Form onSubmit={handleSubmit}>
-          <input 
+          <Input 
             placeholder={"Nome"}
             value={form.name}
             name="name"
@@ -60,7 +55,7 @@ function SubscriptionPage() {
             required
           />
 
-          <input 
+          <Input 
             placeholder={"Idade"}
             value={form.age}
             name="age"
@@ -70,7 +65,7 @@ function SubscriptionPage() {
             required
           />
 
-          <input 
+          <Input 
             placeholder={"Profissão"}
             value={form.profession}
             name="profession"
@@ -89,22 +84,22 @@ function SubscriptionPage() {
             required
           />
           
-          <select
+          <Select
             value={form.trip}
             name="trip"
             onChange={handleInputChange}
             type="text"
             required
           >
-            <option>Trips</option>
+            <option disabled >Viagens</option>
             {trips.map((trip) => {
               return (
               <option value={trip.id} key={trip.id}> {trip.name} - {trip.planet} </option>
               )
             })}
-          </select>
+          </Select>
 
-          <input
+          <Input
             placeholder={"Motivação"} 
             value={form.applicationText}
             name="applicationText"
@@ -115,10 +110,8 @@ function SubscriptionPage() {
             required
           />
       
-          <button type={"submit"} >ENVIAR</button>
+          <Button type={"submit"} >ENVIAR</Button>
       </Form>
-      <button onClick={() => goBack(history)} >VOLTAR</button>
-      <button onClick={() => goToHomePage(history)} >HOME</button>
     </Container>
   );
 }

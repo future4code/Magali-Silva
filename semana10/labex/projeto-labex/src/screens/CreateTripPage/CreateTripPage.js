@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import { goToHomePage, goBack } from '../../router/goToPages'
+import React from 'react';
 import { useChangePageTitle } from '../../hooks/useChangePageTitle'
 import { useProtectPage } from '../../hooks/useProtectPage'
 import { useForm } from '../../hooks/useForm'
 import { createTrip } from '../../services/createTrip'
+import Title from '../../components/Title/Title'
+import { Container, FormContainer, Input, Select, Button } from './styled';
 
 function CreateTripPage() {
-  const history = useHistory();
 
   useChangePageTitle("LABEX - Adicionar Viagem")
   useProtectPage()
@@ -37,10 +36,11 @@ function CreateTripPage() {
 
   return (
 
-    <div>
-      <p>ADICIONE UMA VIAGEM</p>
-      <form onSubmit={handleSubmit}>
-        <input 
+    <Container>
+      <Title title={"Adicione uma viagem"} />
+      <FormContainer onSubmit={handleSubmit}>
+        
+        <Input 
           placeholder={"Nome"}
           value={form.name}
           name="name"
@@ -50,23 +50,24 @@ function CreateTripPage() {
           title="Deve conter no mínimo 5 letras!"
           required
         />
+        
 
-        <select 
+        <Select 
           value={form.planet}        
           name="planet"
           onChange={handleInputChange}
           type="text"
           required
         >
+          <option disabled >Planetas</option>
           {planets.map((planet) => {
             return (
             <option value={planet} key={planet}>{planet}</option>
             )
           })}
-        </select>
+        </Select>
 
-        {/* alterar formato da data */}
-        <input 
+        <Input  
           placeholder={"Data"}
           value={form.date}
           name="date"
@@ -76,7 +77,7 @@ function CreateTripPage() {
           required
         />
 
-        <input 
+        <Input  
           placeholder={"Descrição"}
           value={form.description}
           name="description"
@@ -87,7 +88,7 @@ function CreateTripPage() {
           required
         />
 
-        <input 
+        <Input  
           placeholder={"Duração (dias)"}
           value={form.durationInDays}
           name="durationInDays"
@@ -96,12 +97,9 @@ function CreateTripPage() {
           min={50}
           required
         />
-        
-        <button type={"submit"} > ADICIONAR </button>
-      </form>
-      <button onClick={() => goBack(history)} >VOLTAR</button>
-      <button onClick={() => goToHomePage(history)} >HOME</button>
-    </div>
+        <Button type={"submit"} > ADICIONAR </Button>
+      </FormContainer >
+    </Container>
   );
 }
 

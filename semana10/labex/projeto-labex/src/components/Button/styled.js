@@ -4,10 +4,9 @@ export const ButtonStyled = styled.button`
 border: none;
 outline: none;
 
-width: 140px;
+width: 160px;
 height: 70px;
 
-/* background-color: rgba(255, 119, 30, 1); */
 background-color: rgba(210, 119, 30, 1);
 
 font-size: 20px;

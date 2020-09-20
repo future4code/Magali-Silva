@@ -1,63 +1,61 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { goToHomePage, goBack } from '../../router/goToPages';
 import { useChangePageTitle } from '../../hooks/useChangePageTitle';
-import axios from 'axios';
-import { baseUrl } from '../../constants/axiosConstants';
-import { Container, Div } from './styled'
+import { useProtectPage } from '../../hooks/useProtectPage';
+import { useForm } from '../../hooks/useForm'
+import { login } from '../../services/login'
 import { Input } from '../../components/Input/styled';
+import FormButton from '../../components/FormButton/FormButton'
+import { Container, Form } from './styled'
 
 function LoginPage() {
-  const [ emailValue, setEmailValue ] = useState("");
-  const [ passwordValue, setPasswordValue ] = useState("");
   const history = useHistory();
 
-  
   useChangePageTitle("LABEX - Login")
 
-  useEffect(() => {
-    const token = window.localStorage.getItem("token");
+  useProtectPage()
 
-    if (token) {
-      history.push("/login/admin");
-    }
-    
-  }, [history])
+  const { form, onChange, resetState } = useForm({
+    email: "",
+    password: ""
+  })
 
-  const handleEmailChange = (event) => {
-    setEmailValue(event.target.value)
+  const handleInputChange = (event) => {
+    const { name, value } = event.target
+
+    onChange(name, value)
   }
 
-  const handlePasswordChange = (event) => {
-    setPasswordValue(event.target.value)
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+    login(form.email, form.password, history)
+
+    resetState()
   }
-
-  const handleLogin = () => {
-    const body = {
-      email: emailValue,
-      password: passwordValue
-    };
-
-    axios
-      .post(`${baseUrl}/login`, body)
-      .then((response) => {
-        localStorage.setItem("token", response.data.token);
-        history.push("/login/admin");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
 
   return (
     <Container>
-      <Div>
-        <Input placeholder={"Email"} value={emailValue} type={"email"} onChange={handleEmailChange}/>
-        <Input placeholder={"Senha"}  value={passwordValue} type={"text"} onChange={handlePasswordChange}/>
-        <button onClick={handleLogin} >LOGIN</button>
-      </Div>
-      <button onClick={() => goBack(history)} >VOLTAR</button>
-      <button onClick={() => goToHomePage(history)} >HOME</button>
+      <Form onSubmit={handleSubmit}>
+        
+        <Input 
+          placeholder={"Email"} 
+          value={form.email} 
+          name="email"
+          onChange={handleInputChange}
+          type={"email"} 
+        />
+
+        <Input 
+          placeholder={"Senha"} 
+          value={form.password} 
+          name="password"
+          onChange={handleInputChange}
+          type={"text"} 
+        />
+
+        <FormButton type={"submit"} text={"LOGIN"} />
+      </Form>
     </Container>
   );
 }

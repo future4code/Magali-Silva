@@ -1,18 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { goToTripDetailsPage, goToHomePage, goToSubscriptionPage, goBack } from '../../router/goToPages';
+import { goToTripDetailsPage, goToSubscriptionPage } from '../../router/goToPages';
 import { useChangePageTitle } from '../../hooks/useChangePageTitle';
 import { useRequestData } from '../../hooks/useRequestData';
 import { baseUrl } from '../../constants/axiosConstants';
 import TripButton from '../../components/TripButton/TripButton'
-import { Container, H2, TripsContainer, TripCard } from './styled';
+import Title from '../../components/Title/Title';
+import { Container, TripsContainer, TripCard } from './styled';
 
 function ListTripsPage() {
   const history = useHistory();
 
   useChangePageTitle("LABEX - Viagens")
 
-  const [ trips, setTrips] = useRequestData(`${baseUrl}/trips`, [])
+  const [ trips ] = useRequestData(`${baseUrl}/trips`, [])
 
   if (trips === null) {
     return (
@@ -22,7 +23,6 @@ function ListTripsPage() {
     )
   }
 
-  // Verifica se tem administrador logado. Se tiver, o botão da página da lista de viagens muda para "VER DETALHES", se não o botão muda para "INSCREVA-SE"
   const changeButton = (id) => {
     const token = window.localStorage.getItem("token");
     
@@ -40,7 +40,7 @@ function ListTripsPage() {
 
   return (
     <Container>
-      <H2>Viagens Disponíveis</H2>
+      <Title title={"Viagens Disponíveis"} />
       <TripsContainer>
         {trips.map((trip) => {
           return (         
@@ -55,8 +55,6 @@ function ListTripsPage() {
           )
         })}
       </TripsContainer>
-      <button onClick={() => goBack(history)} >VOLTAR</button>
-      <button onClick={() => goToHomePage(history)} >HOME</button>
     </Container>
   );
 }

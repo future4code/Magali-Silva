@@ -1,6 +1,5 @@
 import { useHistory } from "react-router-dom"
 import { useEffect } from "react";
-// import { goToLoginPage } from "../router/goToPages";
 
 
 export const useProtectPage = () => {
@@ -10,7 +9,6 @@ export const useProtectPage = () => {
         const token = localStorage.getItem("token");
 
         if (token === null) {
-            // goToLoginPage()
             history.push("/login")
         } 
         
