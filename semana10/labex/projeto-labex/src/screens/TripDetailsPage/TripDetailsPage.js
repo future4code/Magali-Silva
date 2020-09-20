@@ -10,7 +10,7 @@ import { Container, H2, I, DetailContainer, PersonContainer, ButtonContainer } f
 
 function TripDetailsPage() {
 
-  useChangePageTitle("Adicionar Viagem")
+  useChangePageTitle("LABEX - Detalhes da viagem")
   useProtectPage()
 
   const pathParams = useParams();
