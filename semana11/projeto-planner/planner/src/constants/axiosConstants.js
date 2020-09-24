@@ -1,1 +1,1 @@
-export const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/generic/:planner-jackson-magali-silva";
+export const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/generic/planner-jackson-magali-silva";

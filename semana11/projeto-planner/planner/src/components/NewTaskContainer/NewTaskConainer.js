@@ -40,10 +40,13 @@ const NewTaskContainer = () => {
         createTask(form.text, form.day)
     
         resetState()
+
+        window.location.reload(true)
     }
     
-    
-    
+    console.log(form.text)
+    console.log(form.day)
+
     return (
         <Div>
             <form onSubmit={handleSubmit}>
