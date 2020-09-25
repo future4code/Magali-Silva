@@ -41,8 +41,8 @@ const TaskListsContainer = () => {
                         if (task.day === "domingo") {
                             return (
                                 <div key={task.id}>
-                                    <p>{task.text}</p>
-                                    <button onClick={() => deleteTask(task.id)}>X</button>
+                                    <p data-testid="task-text">{task.text}</p>
+                                    <button data-testid="delete-button" onClick={() => deleteTask(task.id)}>X</button>
                                 </div>
                             )
                         }
@@ -57,8 +57,8 @@ const TaskListsContainer = () => {
                         if (task.day === "segunda") {
                             return (
                                 <div key={task.id}>
-                                    <p>{task.text}</p>
-                                    <button onClick={() => deleteTask(task.id)}>X</button>
+                                    <p data-testid="task-text">{task.text}</p>
+                                    <button data-testid="delete-button" onClick={() => deleteTask(task.id)}>X</button>
                                 </div>
                             )
                         }
@@ -73,8 +73,8 @@ const TaskListsContainer = () => {
                         if (task.day === "terca") {
                             return (
                                 <div key={task.id}>
-                                    <p>{task.text}</p>
-                                    <button onClick={() => deleteTask(task.id)}>X</button>
+                                    <p data-testid="task-text">{task.text}</p>
+                                    <button data-testid="delete-button" onClick={() => deleteTask(task.id)}>X</button>
                                 </div>
                             )
                         }
@@ -89,8 +89,8 @@ const TaskListsContainer = () => {
                         if (task.day === "quarta") {
                             return (
                                 <div key={task.id}>
-                                    <p>{task.text}</p>
-                                    <button onClick={() => deleteTask(task.id)}>X</button>
+                                    <p data-testid="task-text">{task.text}</p>
+                                    <button data-testid="delete-button" onClick={() => deleteTask(task.id)}>X</button>
                                 </div>
                             )
                         }
@@ -105,8 +105,8 @@ const TaskListsContainer = () => {
                         if (task.day === "quinta") {
                             return (
                                 <div key={task.id}>
-                                    <p>{task.text}</p>
-                                    <button onClick={() => deleteTask(task.id)}>X</button>
+                                    <p data-testid="task-text">{task.text}</p>
+                                    <button data-testid="delete-button" onClick={() => deleteTask(task.id)}>X</button>
                                 </div>
                             )
                         }
@@ -121,8 +121,8 @@ const TaskListsContainer = () => {
                         if (task.day === "sexta") {
                             return (
                                 <div key={task.id}>
-                                    <p>{task.text}</p>
-                                    <button onClick={() => deleteTask(task.id)}>X</button>
+                                    <p data-testid="task-text">{task.text}</p>
+                                    <button data-testid="delete-button" onClick={() => deleteTask(task.id)}>X</button>
                                 </div>
                             )
                         }
@@ -137,8 +137,8 @@ const TaskListsContainer = () => {
                         if (task.day === "sabado") {
                             return (
                                 <div key={task.id}>
-                                    <p>{task.text}</p>
-                                    <button onClick={() => deleteTask(task.id)}>X</button>
+                                    <p data-testid="task-text">{task.text}</p>
+                                    <button data-testid="delete-button" onClick={() => deleteTask(task.id)}>X</button>
                                 </div>
                             )
                         }

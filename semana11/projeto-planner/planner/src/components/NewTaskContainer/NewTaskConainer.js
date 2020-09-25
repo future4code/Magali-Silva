@@ -20,8 +20,6 @@ const NewTaskContainer = () => {
         .catch((error) => {
             console.log(error)
         })
-
-        console.log(body)
     }
     
     const { form, onChange, resetState } = useForm({
@@ -43,20 +41,18 @@ const NewTaskContainer = () => {
 
         window.location.reload(true)
     }
-    
-    console.log(form.text)
-    console.log(form.day)
 
     return (
         <Div>
             <form onSubmit={handleSubmit}>
-                <label for="tarefa">Nova tarefa:</label>
+                <label htmlFor="tarefa"> Nova tarefa:</label>
                 <input 
                     value={form.text}
                     name="text"
                     onChange={handleInputChange} 
                     type="text" 
                     required
+                    placeholder={"Digite a tarefa"} 
                 />
 
                 <select 
@@ -65,6 +61,7 @@ const NewTaskContainer = () => {
                     onChange={handleInputChange}
                     type="text"
                     required
+                    data-testid="select"
                 >
                     <option value="domingo">Domingo</option>
                     <option value="segunda">Segunda-feira</option>
@@ -75,7 +72,7 @@ const NewTaskContainer = () => {
                     <option value="sabado">Sábado</option>
                 </select>
 
-                <button type={"submit"} >Criar tarefa</button>
+                <button type={"submit"} >Criar</button>
             </form>   
         </Div>
     );
