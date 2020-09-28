@@ -63,13 +63,14 @@ const NewTaskContainer = () => {
                     required
                     data-testid="select"
                 >
-                    <option value="domingo">Domingo</option>
-                    <option value="segunda">Segunda-feira</option>
-                    <option value="terca">Terça-feira</option>
-                    <option value="quarta">Quarta-feira</option>
-                    <option value="quinta">Quinta-feira</option>
-                    <option value="sexta">Sexta-feira</option>
-                    <option value="sabado">Sábado</option>
+                    <option value="none">Dias da Semana</option>
+                    <option value="domingo" data-testid="domingo">Domingo</option>
+                    <option value="segunda" data-testid="segunda">Segunda-feira</option>
+                    <option value="terca" data-testid="terca">Terça-feira</option>
+                    <option value="quarta" data-testid="quarta">Quarta-feira</option>
+                    <option value="quinta" data-testid="quinta">Quinta-feira</option>
+                    <option value="sexta" data-testid="sexta">Sexta-feira</option>
+                    <option value="sabado" data-testid="sabado">Sábado</option>
                 </select>
 
                 <button type={"submit"} >Criar</button>
