@@ -4,6 +4,7 @@ import LoginPage from '../screens/LoginPage/LoginPage'
 import SignUpPage from '../screens/SignUpPage/SignUpPage'
 import PostsFeedPage from '../screens/PostsFeedPage/PostsFeedPage'
 import PostDetailPage from '../screens/PostDetailPage/PostDetailPage'
+import ErrorPage from '../screens/ErrorPage/ErrorPage'
 
 const Router = () => {
     return (
@@ -21,7 +22,7 @@ const Router = () => {
                 <PostDetailPage />
             </Route>
             <Route>
-                <div>ERRO 404</div>
+                <ErrorPage />
             </Route>
         </Switch>
     )

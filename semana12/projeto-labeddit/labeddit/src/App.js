@@ -2,14 +2,25 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 import Router from './routes/Router';
+import { ThemeProvider } from '@material-ui/core/styles';
+import theme from './constants/theme'
+import Header from './components/Header/Header';
+import styled from 'styled-components'
+
+const Container = styled.div`
+  padding-top: 80px;
+`
 
 function App() {
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <Router/>
+        <Header />
+        <Container>
+          <Router/>
+        </Container>
       </BrowserRouter>      
-    </div>
+    </ThemeProvider>
   );
 }
 
