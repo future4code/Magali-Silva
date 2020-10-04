@@ -1,40 +1,33 @@
 import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField'
-import { Button } from '@material-ui/core'
+import { Button, Typography } from '@material-ui/core'
 import {PageContainer, FormContainer} from './styled'
 import { login } from '../../services/user'
+import { useHistory } from 'react-router-dom'
+import { goToSignUpPage } from '../../routes/Coordinator'
+import useForm from '../../hooks/useForm'
+import useUnprotectedPage from '../../hooks/useUnprotectedPage'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
-const LoginPage = () => {
-    const [form, setForm] = useState({
+const LoginPage = (props) => {
+    const [form, handleInputChange] = useForm({
         email: "",
         password: ""
     })
-
-    const handleInputChange = (event) => {
-        const {value, name} = event.target
-        setForm({...form, [name]: value})
-    }
+    const [isLoading, setIsLoading] = useState(false)
+    const history = useHistory()
+    useUnprotectedPage()
 
     const onClickLogin = (event) => {
         event.preventDefault()
-
-        // const element = document.getElementById("login_form")
-        // const isValid = element.checkValidity()
-        // element.reportValidity()
-
-        // if (isValid){
-        //      console.log(form)
-        //      login(form)
-        // }
-        login(form)
-
+        login(form, history, props.setButtonName, setIsLoading)
         console.log(form)
     }
 
-
     return (
         <PageContainer>
-            <h1>LabEddit</h1>
+            <Typography color={"primary"} variant={"h3"} align={"center"}>LABEDDIT</Typography>
+                        
             <form id={"login_form"}>
                 <FormContainer>
                     <TextField 
@@ -58,14 +51,17 @@ const LoginPage = () => {
                         required
                         fullWidth
                     />
-                    <Button 
+                    <Button
+                        onClick={onClickLogin}
                         color={"primary"}
                         variant={"contained"}
                         type={"submit"} 
                         fullWidth
-                    >Fazer Login</Button>
+                    >
+                    {isLoading ? <CircularProgress color={'inherit'} size={24}/> : <>Fazer Login</>}
+                    </Button>
                     <Button 
-                        onClick={onClickLogin}
+                        onClick={() => goToSignUpPage(history)}
                         color={"primary"}
                         variant={"text"}
                         type={"submit"} 

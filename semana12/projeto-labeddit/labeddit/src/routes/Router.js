@@ -6,14 +6,14 @@ import PostsFeedPage from '../screens/PostsFeedPage/PostsFeedPage'
 import PostDetailPage from '../screens/PostDetailPage/PostDetailPage'
 import ErrorPage from '../screens/ErrorPage/ErrorPage'
 
-const Router = () => {
+const Router = (props) => {
     return (
         <Switch>
             <Route exact path={'/login'} >
-                <LoginPage />
+                <LoginPage setButtonName={props.setButtonName} />
             </Route>
             <Route exact path={'/cadastro'} >
-                <SignUpPage />
+                <SignUpPage setButtonName={props.setButtonName} />
             </Route>
             <Route exact path={['/feed', '/']} >
                 <PostsFeedPage />

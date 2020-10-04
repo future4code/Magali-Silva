@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 import Router from './routes/Router';
@@ -12,12 +12,15 @@ const Container = styled.div`
 `
 
 function App() {
+  const token = localStorage.getItem("token")
+  const [buttonName, setButtonName] = useState(token ? "Logout" : "Login")
+
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <Header />
+        <Header buttonName={buttonName} setButtonName={setButtonName}/>
         <Container>
-          <Router/>
+          <Router setButtonName={setButtonName} />
         </Container>
       </BrowserRouter>      
     </ThemeProvider>
