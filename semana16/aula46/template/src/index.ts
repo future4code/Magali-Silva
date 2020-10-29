@@ -1,15 +1,18 @@
 import knex from "knex";
-import express, { Request, Response } from "express";
+import express, { Express } from "express";
 import dotenv from "dotenv";
 import { AddressInfo } from "net";
-
-/**************************************************************/
+import { getActorById } from "./endpoints/getActorById";
+import { searchActorByName } from "./endpoints/searchActorByName";
+import { getCountActorByGender } from "./endpoints/getCountActorByGender";
+import { averageSalaryByGender } from "./data/averageSalaryByGender";
+import { createNewActor } from "./endpoints/createNewActor";
+import { updateActorSalary } from "./endpoints/updateActorSalary";
+import { deleteActor } from "./endpoints/deleteActor";
 
 dotenv.config();
 
-/**************************************************************/
-
-const connection = knex({   
+export const connection = knex({   
   client: "mysql",
   connection: {
     host: process.env.DB_HOST,
@@ -20,11 +23,21 @@ const connection = knex({
   },
 });
 
-/**************************************************************/
-
-const app = express();
+const app: Express = express();
 
 app.use(express.json());
+
+app.get('/actor/:id', getActorById);
+
+app.get('/actor/search/:name', searchActorByName);
+
+app.get('/actor', getCountActorByGender)
+
+app.put('/actor', createNewActor)
+
+app.post('/actor/salary', updateActorSalary)
+
+app.delete('/actor/:id', deleteActor)
 
 const server = app.listen(process.env.PORT || 3003, () => {
   if (server) {
@@ -35,18 +48,5 @@ const server = app.listen(process.env.PORT || 3003, () => {
   }
 });
 
-/**************************************************************/
-
-app.get('/', testEndpoint)
-
-async function testEndpoint(req:Request, res:Response): Promise<void>{
-  try {
-    const result = await connection.raw(`
-      SELECT * FROM Actor
-    `)
-
-    res.status(200).send(result)
-  } catch (error) {
-    res.status(400).send(error.message)
-  }
-}
+averageSalaryByGender("female") // teste, ainda sem endpoint // ok
+averageSalaryByGender("male") // teste, ainda sem endpoint // ok
