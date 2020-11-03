@@ -5,6 +5,8 @@ import { AddressInfo } from "net";
 import { createNewUser } from "./endpoints/createNewUser";
 import { getUserById } from "./endpoints/getUserById";
 import { editUser } from "./endpoints/editUser";
+import { createNewTask } from "./endpoints/createNewTask";
+import { getTaskById } from "./endpoints/getTaskById";
 
 dotenv.config();
 
@@ -26,6 +28,9 @@ app.use(express.json());
 app.put('/user', createNewUser);
 app.get('/user/:id', getUserById);
 app.post('/user/edit/:id', editUser);
+app.put('/task', createNewTask);
+app.get('/task/:id', getTaskById)
+
 
 
 

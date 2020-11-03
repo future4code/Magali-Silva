@@ -1,17 +1,18 @@
-import {connection} from '../index'
+import { connection } from '../index'
 
 export async function createUser(
-        name: string,
-        nickname: string,
-        email: string
-    ): Promise<void> {
+    id: string,
+    name: string,
+    nickname: string,
+    email: string
+): Promise<void> {
     try {
-        const result = await connection.raw(`
-            INSERT INTO ToDoListUsers (name, nickname, email) 
-            VALUES ("${name}", "${nickname}", "${email}")
+        await connection.raw(`
+            INSERT INTO ToDoListUsers (id, name, nickname, email) 
+            VALUES ("${id}", "${name}", "${nickname}", "${email}")
         `)
 
-        console.log(result[0])
+        console.log("Sucesso ao adicionar usuário.")
 
     } catch (error) {
         console.log(error)

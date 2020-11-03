@@ -1,11 +1,14 @@
 import { connection } from '../index'
 
-export async function selectUserById(
+export async function selectTaskById(
     id: string
 ): Promise<any> {
     try {
         const result = await connection.raw(`
-            SELECT id, nickname FROM ToDoListUsers WHERE id="${id}"
+            SELECT tasks.*, nickname FROM ToDoListTasks AS tasks
+            JOIN ToDoListUsers AS users
+            ON author_id = users.id
+            WHERE tasks.id="${id}";
         `)
 
         return result[0][0]
