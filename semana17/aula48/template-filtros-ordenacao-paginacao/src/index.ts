@@ -4,6 +4,9 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { AddressInfo } from "net";
 import { getAllUsers } from "./endpoints/getAllUsers";
+import { searchUsers } from "./endpoints/searchUsers";
+import { searchUsersByType } from "./endpoints/searchUsersByType";
+import { orderUserByTypeName } from "./endpoints/orderUsersByTypeName";
 
 
 dotenv.config();
@@ -24,6 +27,11 @@ app.use(express.json());
 app.use(cors())
 
 app.get("/users/all", getAllUsers);
+app.get("/users/search", searchUsers);
+app.get("/users/:type", searchUsersByType);
+app.get("/users/order", orderUserByTypeName);
+
+
 
 const server = app.listen(process.env.PORT || 3003, () => {
    if (server) {

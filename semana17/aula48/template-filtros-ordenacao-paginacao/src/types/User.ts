@@ -1,9 +1,12 @@
-import { Recipe } from "./Recipe"
+export enum TYPE_USER {
+   TEACHER = "Teacher",
+   CX = "CX",
+   OPERATIONS = "Operations"
+}
 
 export type User = {
-   id: string,
+   id: number,
    name: string,
    email: string,
-   recipes: Recipe[],
-   password: string
+   type: TYPE_USER
 }
