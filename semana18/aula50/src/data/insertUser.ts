@@ -8,9 +8,9 @@ export async function insertUser(
     try {
         await connection('aula50_users')
         .insert({
-            id,
-            email,
-            password
+            id: id,
+            email: email,
+            password: password
         })
         
     } catch (error) {
