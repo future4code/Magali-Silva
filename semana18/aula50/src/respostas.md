@@ -240,6 +240,8 @@ export const login = async (req: Request, res: Response) => {
 
 ### Exercício 7:
 *a. O que a linha as any faz? Por que precisamos usá-la ali?*
+O *as any* garante que o retorno do jwt.verify() seja de qualquer tipo.
+
 *b. Crie uma função que realize a mesma funcionalidade da função acima*
 ```
 export const getTokenData = (
@@ -252,4 +254,54 @@ export const getTokenData = (
 }
 ```
 
+### Exercício 8:
+*a. Comece criando uma função no data que retorne o usuário a partir do id*
+```
+export async function selectUserById(
+    id: string
+): Promise<User> {
+    try {
+        const result = await connection('aula50_users')
+        .select("*")
+        .where("id", id);
+        
+        return {
+            id: result[0],
+            email: result[0].email,
+            password: result[0].password
+        }
+        
+    } catch (error) {
+        throw new Error(error.message || error.sqlMessage)
+    }
+};
+```
 
+*b. Crie o endpoint com as especificações passadas*
+```
+export const getProfile = async (req: Request, res: Response) => {
+    try {
+        let message: string = 'user found'
+
+        const token = req.headers.authorization as string
+        const tokenData: AuthenticationData = getTokenData(token)
+        
+        const user = await selectUserById(tokenData.id)
+
+        if (!user) {
+            res.statusCode = 404
+            message = 'user not found'
+            throw new Error(message)
+        }
+        
+        res.status(200).send({ 
+            message,
+            id: user.id,
+            email: user.email
+        })
+
+    } catch (error) {
+        res.status(400).send({ message: error.sqlMessage || error.message })
+    }
+}
+```

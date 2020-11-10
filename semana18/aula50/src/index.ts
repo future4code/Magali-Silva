@@ -5,6 +5,7 @@ import cors from 'cors'
 import { AddressInfo } from 'net'
 import { createUser } from './endpoints/createUser'
 import { login } from './endpoints/login'
+import { getProfile } from './endpoints/getProfile'
 
 dotenv.config()
 
@@ -25,10 +26,7 @@ app.use(cors());
 
 app.post('/users/signup', createUser)
 app.post('/users/login', login)
-
-
-
-
+app.get('/users/profile', getProfile)
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
