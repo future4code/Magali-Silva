@@ -329,9 +329,33 @@ export const deleteUser = async (req: Request, res: Response) => {
 ### Exercício 6:
 *Implemente o endpoint que retorne as informações (id e email) de um usuário a partir do seu id.*
 ```
+export const getUser = async (req: Request, res: Response) => {
+    try {
+        let message: string = 'user found'
 
+        const token = req.headers.authorization as string
+
+        getTokenData(token)
+        
+        const id: string = req.params.id as string
+
+        const user = await selectUserById(id)
+
+        if (!user) {
+            res.statusCode = 404
+            message = 'user not found'
+            throw new Error(message)
+        }
+        
+        res.status(200).send({ 
+            message: {
+                id: user.id,
+                email: user.email
+            }
+        })
+
+    } catch (error) {
+        res.status(400).send({ message: error.sqlMessage || error.message })
+    }
+}
 ```
-
-~~~SQL
-
-~~~

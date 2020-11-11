@@ -7,6 +7,8 @@ import { createUser } from './endpoints/createUser'
 import { login } from './endpoints/login'
 import { getProfile } from './endpoints/getProfile'
 import { deleteUser } from './endpoints/deleteUser'
+import { getUser } from './endpoints/getUser'
+
 
 dotenv.config()
 
@@ -29,6 +31,7 @@ app.post('/users/signup', createUser)
 app.post('/users/login', login)
 app.get('/users/profile', getProfile)
 app.delete('/user/:id', deleteUser)
+app.get('/user/:id', getUser)
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
