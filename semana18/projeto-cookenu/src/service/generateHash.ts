@@ -9,6 +9,6 @@ export const hash = async (plainText: string): Promise<string> => {
 export const compare = async (
     plainText: string, 
     cypherText:string
-): Promise<Boolean> => {
+): Promise<boolean> => {
     return bcrypt.compare(plainText, cypherText)
 }
