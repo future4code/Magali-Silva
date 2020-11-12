@@ -32,7 +32,7 @@ export const signup = async(req: Request, res:Response) => {
 
         const token: string = generateToken({id})
 
-        res.status(400).send({
+        res.status(200).send({
             message: message,
             access_token: token
         })

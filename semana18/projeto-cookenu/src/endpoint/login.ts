@@ -1,7 +1,5 @@
 import {Request, Response} from 'express'
-import { generateId } from '../service/generateId'
-import { hash, compare } from '../service/generateHash'
-import { insertUser } from '../data/insertUser'
+import { compare } from '../service/generateHash'
 import { generateToken } from '../service/generateToken'
 import { User } from '../type'
 import { selectUserByEmail } from '../data/selectUserByEmail'
@@ -17,7 +15,7 @@ export const login = async(req: Request, res:Response) => {
             throw new Error(message)
         }
 
-        const user = await selectUserByEmail(email)
+        const user: User = await selectUserByEmail(email)
 
         if (!user) {
             res.statusCode = 404
@@ -35,7 +33,7 @@ export const login = async(req: Request, res:Response) => {
 
         const token: string = generateToken({id: user.id})
 
-        res.status(400).send({
+        res.status(200).send({
             message: message,
             access_token: token
         })
