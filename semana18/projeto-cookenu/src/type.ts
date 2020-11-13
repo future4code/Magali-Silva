@@ -8,3 +8,11 @@ export type User = {
 export type AuthenticationData = {
     id: string
 }
+
+export type Recipe = {
+    id: string,
+    user_id: string,
+    title: string,
+    description: string,
+    createdAt: Date
+}

@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import { AuthenticationData, User } from "../type"
+import { User } from "../type"
 import { getTokenData } from "../service/generateToken"
 import { selectUserById } from "../data/selectUserById"
 
