@@ -1,12 +1,12 @@
 export const handleDate = () => {
-    const data = new Date
-    const day = data.getDate().toString()
-    const dayFormat = (day.length == 1) ? "0"+day : day
-    const now = `${dayFormat}/${data.getMonth()+1}/${data.getFullYear()}`
+    const date = new Date
+    const day = date.getDate().toString()
+    const formatDay = (day.length == 1) ? "0"+day : day
+    const now = `${formatDay}/${date.getMonth()+1}/${date.getFullYear()}`
 
-    const nowForDB: Date = new Date(`${data.getFullYear()}-${data.getMonth()+1}-${dayFormat}`)
+    const nowForDB: Date = new Date(`${date.getFullYear()}-${date.getMonth()+1}-${formatDay}`)
 
-    console.log(data, day)
+    console.log(date, day)
     console.log(now)
     console.log(nowForDB)
 
@@ -17,3 +17,10 @@ export const handleDate = () => {
     }
 }
 
+export const formatDate = (date: Date) => {
+    const day = date.getDate().toString()
+    const formatDay = (day.length == 1) ? "0"+day : day
+    const now = `${formatDay}/${date.getMonth()+1}/${date.getFullYear()}`
+
+    return now
+}

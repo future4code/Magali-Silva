@@ -8,6 +8,7 @@ import { login } from './endpoint/login'
 import { getProfile } from './endpoint/getProfile'
 import { getUser } from './endpoint/getUser'
 import { createRecipe } from './endpoint/createRecipe'
+import { getRecipe } from './endpoint/getRecipe'
 
 dotenv.config()
 
@@ -31,6 +32,8 @@ app.post('/login', login)
 app.get('/user/profile', getProfile)
 app.get('/user/:id', getUser)
 app.post('/recipe', createRecipe)
+app.get('/recipe/:id', getRecipe)
+
 
 
 const server = app.listen(process.env.PORT || 3003, () => {
