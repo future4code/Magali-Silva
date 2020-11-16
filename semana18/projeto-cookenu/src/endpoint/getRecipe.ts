@@ -2,7 +2,7 @@ import { Request, Response } from "express"
 import { Recipe } from "../type"
 import { getTokenData } from "../service/generateToken"
 import { selectRecipeById } from "../data/selectRecipeById"
-import { formatDate } from "../service/handleDate"
+import { formatDate } from "../functions/handleDate"
 
 export const getRecipe = async(req: Request, res: Response) => {
     try {
@@ -25,7 +25,6 @@ export const getRecipe = async(req: Request, res: Response) => {
 
         res.status(200).send({
             id: recipe.id,
-            user_id: recipe.user_id,
             title: recipe.title,
             description: recipe.description,
             createdAt: date

@@ -17,3 +17,13 @@ CREATE TABLE cookenu_recipes(
     FOREIGN KEY (user_id) REFERENCES cookenu_users(id)
 );
 ~~~
+
+~~~SQL
+CREATE TABLE cookenu_followers(
+    user_id VARCHAR(255),
+    following_id VARCHAR(255),
+    PRIMARY KEY (user_id, following_id),
+    FOREIGN KEY (user_id) REFERENCES cookenu_users(id),
+    FOREIGN KEY (following_id) REFERENCES cookenu_users(id)
+);
+~~~

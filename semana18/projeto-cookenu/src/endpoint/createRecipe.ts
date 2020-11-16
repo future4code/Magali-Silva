@@ -2,7 +2,7 @@ import {Request, Response} from 'express'
 import { generateId } from '../service/generateId'
 import { insertRecipe } from '../data/insertRecipe'
 import { getTokenData } from '../service/generateToken'
-import { handleDate } from '../service/handleDate'
+import { handleDate } from '../functions/handleDate'
 
 export const createRecipe = async(req: Request, res:Response) => {
     try {
