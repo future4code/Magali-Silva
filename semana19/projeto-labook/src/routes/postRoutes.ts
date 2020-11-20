@@ -5,4 +5,4 @@ import PostController from '../controller/PostController';
 export const postRouter = express.Router();
 
 postRouter.post('/create', PostController.createPost)
-postRouter.post('/:id', PostController.getPostById)
+postRouter.get('/:id', PostController.getPostById)

@@ -4,22 +4,31 @@ export enum POST_TYPES {
 }
 
 export class Post {
+    private type: POST_TYPES
 
     constructor(
         private id: string,
         private photo: string,
         private description: string,
-        private type: POST_TYPES,
-        private createdAt: Date,
+        type: string,
+        private createdAt: string,
         private authorId: string
-    ){}
+    ){
+        if (type.toLowerCase() === POST_TYPES.EVENT) {
+            this.type = POST_TYPES.EVENT
+        } else if (type.toLowerCase() === POST_TYPES.NORMAL) {
+            this.type = POST_TYPES.NORMAL
+        } else {
+            throw new Error('invalid post "type"')
+        }
+    }
     
-    public getId = () => this.id
-    public getPhoto = () => this.photo
-    public getDescription = () => this.description
-    public getType = () => this.type
-    public getCreatedAt = () => this.createdAt
-    public getAuthorId = () => this.authorId
+    public getId = (): string => this.id
+    public getPhoto = (): string => this.photo
+    public getDescription = (): string => this.description
+    public getType = (): POST_TYPES => this.type
+    public getCreatedAt = (): string => this.createdAt
+    public getAuthorId = (): string => this.authorId
 
 }
 
@@ -27,4 +36,9 @@ export interface PostInput {
     photo: string,
     description: string,
     type: POST_TYPES
+}
+
+export interface getPost {
+    id: string,
+    token: string
 }
