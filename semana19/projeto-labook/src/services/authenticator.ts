@@ -1,25 +1,33 @@
 import * as jwt from 'jsonwebtoken'
-import { AuthenticationData } from '../model/User'
 
-export const generateToken = (payload: AuthenticationData): string => {
-    return jwt.sign(
-        payload,
-        process.env.JWT_KEY as string,
-        {
-            expiresIn: process.env.JWT_EXPIRES_IN
-        }
-    )
+export type AuthenticationData = {
+    id: string
 }
 
-export const getTokenData = (
-    token: string
-): AuthenticationData => {
-    const payload = jwt.verify(
-        token,
-        process.env.JWT_KEY as string
-    ) as AuthenticationData
+class Authenticator {
+    public generateToken(payload: AuthenticationData): string {
+        return jwt.sign(
+            payload,
+            process.env.JWT_KEY as string,
+            {
+                expiresIn: process.env.JWT_EXPIRES_IN
+            }
+        )
+    }
 
-    return {
-        id: payload.id
+    public getTokenData(token: string): AuthenticationData {
+        const payload = jwt.verify(
+            token,
+            process.env.JWT_KEY as string
+        ) as AuthenticationData
+
+        return {
+            id: payload.id
+        }
     }
 }
+
+export default new Authenticator()
+
+
+
