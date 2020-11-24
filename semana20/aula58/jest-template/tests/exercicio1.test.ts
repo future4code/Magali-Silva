@@ -1,8 +1,6 @@
 import { User, performPurchase } from "../src/exercicio1"
 
-// Exercício 2: 
 describe("Validate purchase", () => {
-    // a.
     test("User with a balance greater than the purchase amount", () => {
         const user: User = {
             name: "Magali",
@@ -17,7 +15,6 @@ describe("Validate purchase", () => {
         })
     })
 
-    // b.
     test("User with the balance equal to the purchase value", () => {
         const user: User = {
             name: "Magali",
@@ -32,7 +29,6 @@ describe("Validate purchase", () => {
         })
     })
 
-    // c.
     test("User with a balance less than the purchase amount", () => {
         const user: User = {
             name: "Magali",
